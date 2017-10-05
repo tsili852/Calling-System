@@ -10,6 +10,7 @@ import * as animation from "tns-core-modules/ui/animation";
 import bluetooth = require('nativescript-bluetooth');
 // import encoder = require("text-encoding");
 import * as utf8 from "utf8";
+var he = require('he');
 
 const imageSource = require("image-source");
 var timer = require("timer");
@@ -132,13 +133,15 @@ export class ConnectComponent implements OnInit {
 
   writeTableNumber(number: number, id: string) {
       // let encodedString = encoder.encode("test");
-      let utfString = utf8.encode("Test");
+      let utfString = utf8.decode("\x74\x65\x73\x74");
+      console.log(he.encode("Test", {'encodeEverything': true}));
+      console.log(utfString);
 
       bluetooth.write({
         peripheralUUID: id,
         serviceUUID: "00ff",
         characteristicUUID: "ff01",
-        value: utfString
+        value: "0x74,0x65,0x73,0x74"
       })
       .then(() => {
         alert("Table number saved");

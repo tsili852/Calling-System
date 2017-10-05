@@ -6,10 +6,9 @@ import { TextField } from "ui/text-field";
 import { Image } from "ui/image";
 import { BluetoothDevice } from "../../shared/bluetooth/bluetooth-device";
 import * as animation from "tns-core-modules/ui/animation";
-
 import bluetooth = require('nativescript-bluetooth');
-// import encoder = require("text-encoding");
 import * as utf8 from "utf8";
+var he = require('he');
 
 const imageSource = require("image-source");
 var timer = require("timer");
@@ -24,11 +23,16 @@ export class ConnectComponent implements OnInit {
   isLoggingIn = true;
   isConnected = false;
   animationSet: animation.Animation;
+  device: BluetoothDevice;
 
   @ViewChild("wifi") wifi: ElementRef;
   @ViewChild("wifiinactive") wifiinactive: ElementRef;
 
-  constructor(private page: Page) {}
+  constructor(private page: Page) {
+    this.device = new BluetoothDevice();
+    this.device.isConnected = false;
+    this.device.UUID = "30:AE:A4:18:1B:16";
+  }
   
   changeImage() {
     let wifiImage = <Image>this.wifi.nativeElement;
@@ -70,16 +74,16 @@ export class ConnectComponent implements OnInit {
             console.log("Bluetooth enabled");
             this.getPermission();
 
-            this.connectToEsp("30:AE:A4:18:1B:16");
-            // this.connectToEsp("30:AE:A4:18:1B:12");
-            
-          } else {
+            this.connectToEsp("30:AE:A4:18:1B:16");            
+          } 
+          else 
+          {
             bluetooth.enable().then(
               (enabled) => {
                 if (enabled) {
                   console.log("Bluetooth enabled");
                   this.getPermission();
-      
+
                   this.connectToEsp("30:AE:A4:18:1B:16");
                 }
                 else {
@@ -91,6 +95,20 @@ export class ConnectComponent implements OnInit {
 
         }
       )  
+  }
+
+  saveTableNumber() {
+    if (this.device.isConnected) {
+      console.log("Device Name: " + this.device.name);
+      console.log("Device UUID: " + this.device.UUID);
+      console.log("Table Number: " + this.device.tableNumber);
+      this.writeTableNumber(this.device.tableNumber, this.device.UUID);
+    }
+    else
+    {
+      alert("No devices connected");
+      this.connectToEsp(this.device.UUID);
+    }
   }
 
   bluetoothEnabled() {
@@ -116,12 +134,14 @@ export class ConnectComponent implements OnInit {
           UUID: id,
           onConnected: (peripheral) => {
               console.log('Connected: ' + peripheral.name);
+              this.device.isConnected = true;
+              this.device.name = peripheral.name;
               // peripheral.services.forEach((service) => {
               //   console.log("service found: " + JSON.stringify(service))
               // });
               this.changeImage();
 
-              this.writeTableNumber(1, id);
+              // this.writeTableNumber(this.device.table_number, id);
           },
           onDisconnected: (peripheral) => {
               console.log('Disconnected: ' + peripheral.name);
@@ -130,17 +150,21 @@ export class ConnectComponent implements OnInit {
       });
   }
 
-  writeTableNumber(number: number, id: string) {
+  writeTableNumber(number: string, id: string) {
       // let encodedString = encoder.encode("test");
-      let utfString = utf8.decode("\x74\x65\x73\x74");
-      console.log(utf8.decode("test"));
-      console.log(utfString);
+      let utfString = he.encode(number, {'encodeEverything': true});
+      utfString = utfString.replace(new RegExp(';','g'), ",");
+      utfString = utfString.replace(new RegExp('&#','g'), "0");
+      // utfString = utfString.substring(0, utfString.lenght - 1);
+      // let utfString = utf8.decode("\x74\x65\x73\x74");
+      // console.log(he.encode("test", {'encodeEverything': true}));
+      console.log(utfString);  
 
       bluetooth.write({
         peripheralUUID: id,
         serviceUUID: "00ff",
         characteristicUUID: "ff01",
-        value: "0x74,0x65,0x73,0x74"
+        value: utfString
       })
       .then(() => {
         alert("Table number saved");

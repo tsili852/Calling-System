@@ -132,12 +132,12 @@
         "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_activity_chooser_view_list_item.xml"
     },
     {
-        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1\\debug\\layout\\design_navigation_item.xml",
-        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\layout\\design_navigation_item.xml"
-    },
-    {
         "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1\\debug\\layout\\abc_screen_toolbar.xml",
         "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1\\debug\\layout\\design_navigation_item.xml",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\layout\\design_navigation_item.xml"
     },
     {
         "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1\\debug\\layout\\abc_list_menu_item_icon.xml",

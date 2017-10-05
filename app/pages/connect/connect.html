@@ -10,7 +10,7 @@
     </GridLayout>
     <Image class="calling-image" width="161" height="75" src="res://calling" stretch="aspectFill" horizontalAlignment="center"></Image>
 
-    <TextField #deviceid class="device-id" keyboardType="number" hint="" style.placeholderColor="white"></TextField>
+    <TextField #deviceid class="device-id" keyboardType="number" hint="" style.placeholderColor="white" [(ngModel)]="device.tableNumber"></TextField>
 
-    <Image (tap)="changeImage()" width="86.67" height="78.4" class="valider" src="res://valider" stretch="aspectFill" horizontalAlignment="center"></Image>
+    <Image (tap)="saveTableNumber()" width="86.67" height="78.4" class="valider" src="res://valider" stretch="aspectFill" horizontalAlignment="center"></Image>
 </StackLayout>

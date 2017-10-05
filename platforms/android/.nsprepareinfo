@@ -1,9 +1,9 @@
 {
-	"time": "Thu Oct 05 2017 15:24:14 GMT+0200 (W. Europe Daylight Time)",
+	"time": "Thu Oct 05 2017 16:55:49 GMT+0200 (W. Europe Daylight Time)",
 	"nativePlatformStatus": "3",
 	"bundle": false,
 	"release": false,
 	"changesRequireBuild": false,
-	"projectFileHash": "8511a244485d0efa7183220d61f6215aaf88c204fa10a3eebbce9d7682871f44",
-	"changesRequireBuildTime": "Thu Oct 05 2017 15:04:04 GMT+0200 (W. Europe Daylight Time)"
+	"projectFileHash": "91467b6678d8fe842645cd5e85ed276d81d7922d43cc7f0469a2aa0b55b1d6a7",
+	"changesRequireBuildTime": "Thu Oct 05 2017 15:49:42 GMT+0200 (W. Europe Daylight Time)"
 }

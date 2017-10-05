@@ -8,6 +8,7 @@
     "@angular/platform-browser": true,
     "@angular/platform-browser-dynamic": true,
     "@angular/router": true,
+    "he": true,
     "nativescript-angular": true,
     "nativescript-bluetooth": true,
     "nativescript-theme-core": true,
