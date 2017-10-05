@@ -1,0 +1,33 @@
+StackLayout {
+    vertical-align: top;
+    margin-top: 20;
+}
+
+ActionBar {
+    margin-top: 20;
+    border-color: transparent; 
+    border-width: 1;
+}
+
+.action-image {
+    width: 40;
+    height: 40;
+    vertical-align: center;
+}
+
+.device-id {
+    margin-top: 20;
+    text-align: center;
+    font-size: 60;
+    width: 250;
+    color: white;
+    border-bottom-color: white;
+}
+
+.valider {
+    margin-top: 40;
+}
+
+.calling-image {
+    margin-top: 20;
+}

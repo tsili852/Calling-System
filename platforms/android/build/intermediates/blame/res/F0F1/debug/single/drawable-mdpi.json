@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-mdpi\\wifi_actif.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\src\\main\\res\\drawable-mdpi\\wifi_actif.png"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-mdpi\\wifi_inactif.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\src\\main\\res\\drawable-mdpi\\wifi_inactif.png"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-mdpi\\icon.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\src\\main\\res\\drawable-mdpi\\icon.png"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-mdpi\\menu.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\src\\main\\res\\drawable-mdpi\\menu.png"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-mdpi\\calling.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\src\\main\\res\\drawable-mdpi\\calling.png"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-mdpi\\logo.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\src\\main\\res\\drawable-mdpi\\logo.png"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-mdpi\\valider.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\src\\main\\res\\drawable-mdpi\\valider.png"
+    }
+]

@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-xxhdpi\\valider.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\src\\main\\res\\drawable-xxhdpi\\valider.png"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-xxhdpi\\wifi_actif.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\src\\main\\res\\drawable-xxhdpi\\wifi_actif.png"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-xxhdpi\\icon.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\src\\main\\res\\drawable-xxhdpi\\icon.png"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-xxhdpi\\wifi_inactif.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\src\\main\\res\\drawable-xxhdpi\\wifi_inactif.png"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-xxhdpi\\menu.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\src\\main\\res\\drawable-xxhdpi\\menu.png"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-xxhdpi\\logo.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\src\\main\\res\\drawable-xxhdpi\\logo.png"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-xxhdpi\\calling.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\CallingSystem\\platforms\\android\\src\\main\\res\\drawable-xxhdpi\\calling.png"
+    }
+]
