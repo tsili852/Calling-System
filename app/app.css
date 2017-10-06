@@ -1,4 +1,5 @@
 @import url("~/platform.css");
+@import '~/nativescript-theme-core/css/purple.css';
 
 Page {
     background-color: white;

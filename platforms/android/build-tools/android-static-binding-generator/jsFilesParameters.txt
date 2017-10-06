@@ -3,7 +3,7 @@ C:\Users\Win10\Documents\nscript_projects\CallingSystem\platforms\android\src\ma
 C:\Users\Win10\Documents\nscript_projects\CallingSystem\platforms\android\src\main\assets\app\app.routing.js
 C:\Users\Win10\Documents\nscript_projects\CallingSystem\platforms\android\src\main\assets\app\main.js
 C:\Users\Win10\Documents\nscript_projects\CallingSystem\platforms\android\src\main\assets\app\pages\connect\connect.component.js
-C:\Users\Win10\Documents\nscript_projects\CallingSystem\platforms\android\src\main\assets\app\pages\list\list.component.js
+C:\Users\Win10\Documents\nscript_projects\CallingSystem\platforms\android\src\main\assets\app\pages\modal-view\modal-view.component.js
 C:\Users\Win10\Documents\nscript_projects\CallingSystem\platforms\android\src\main\assets\app\shared\config.js
 C:\Users\Win10\Documents\nscript_projects\CallingSystem\platforms\android\src\main\assets\app\shared\bluetooth\bluetooth-device.js
 C:\Users\Win10\Documents\nscript_projects\CallingSystem\platforms\android\src\main\assets\app\shared\bluetooth\bluetooth.service.js
