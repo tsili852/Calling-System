@@ -32,6 +32,7 @@ export class ConnectComponent implements OnInit {
 
   @ViewChild("wifi") wifi: ElementRef;
   @ViewChild("wifiinactive") wifiinactive: ElementRef;
+  @ViewChild("device-id") deviceId: ElementRef;
 
   constructor(private page: Page, private modalService: ModalDialogService, private vcRef: ViewContainerRef) {
     this.device = new BluetoothDevice();
@@ -42,6 +43,8 @@ export class ConnectComponent implements OnInit {
   ngOnInit() {
     this.page.actionBarHidden = false;
     this.page.backgroundColor = new Color("#4E2C52");
+
+    this.setTextFieldColor();
 
     const img = imageSource.fromResource("wifi_inactif");
 
@@ -214,5 +217,14 @@ export class ConnectComponent implements OnInit {
   private handleError(error: any) {
     alert("Error: " + error);
     console.dir(error);
+  }
+
+  setTextFieldColor() {
+    let deviceIdTextField = <TextField>this.deviceId.nativeElement;
+
+    let mainTextColor = new Color("#ffffff");
+    deviceIdTextField.color = mainTextColor;
+    let hintColor = new Color("#ffffff");
+    setHintColor({ view: deviceIdTextField, color: hintColor });
   }
 }

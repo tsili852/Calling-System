@@ -1,6 +1,12 @@
 StackLayout {
-  height: 305;
+  vertical-align: top;
+  margin-top: 50;
 }
+
 Button {
   height: 40;
+}
+
+ActionBar {
+  background-color: #4E2C52;
 }

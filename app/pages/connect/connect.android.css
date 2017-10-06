@@ -1,3 +1,5 @@
-/* StackLayout {
-  height: 340;
-} */
+ActionBar {
+  margin-top: 20;
+  border-color: transparent; 
+  border-width: 1;
+}

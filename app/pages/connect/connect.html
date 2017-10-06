@@ -1,16 +1,18 @@
 <ActionBar title="test">
-    <Image src="res://menu" class="action-image"></Image>
+    <ActionItem ios.position="left">
+        <Image src="res://menu" class="action-image"></Image>
+    </ActionItem>
 </ActionBar>
 
 <StackLayout #container height="100%">
-    <!-- <Image #wifi class="wifi-image" width="102" height="78.67" src="res://wifi_inactif" stretch="aspectFill" horizontalAlignment="center"></Image> -->
     <GridLayout rows="auto">
-      <Image row="0" #wifiinactive class="wifi-image-inactive" style.opacity="0" width="102" height="78.67" src="res://wifi_inactif" stretch="aspectFill" horizontalAlignment="center"></Image>
-      <Image row="0" #wifi class="wifi-image" width="102" height="78.67" src="res://wifi_actif" stretch="aspectFill" horizontalAlignment="center"></Image>
+        <Image id="wifiinactive" row="0" #wifiinactive class="wifi-image-inactive" style.opacity="0" src="res://wifi_inactif" stretch="aspectFill"
+            horizontalAlignment="center"></Image>
+        <Image id="wifiactive" row="0" #wifi class="wifi-image" src="res://wifi_actif" stretch="aspectFill" horizontalAlignment="center"></Image>
     </GridLayout>
-    <Image class="calling-image" width="161" height="75" src="res://calling" stretch="aspectFill" horizontalAlignment="center"></Image>
+    <Image id="calling-image" class="calling-image" src="res://calling" stretch="aspectFill" horizontalAlignment="center"></Image>
 
     <TextField #deviceid class="device-id" keyboardType="number" hint="" style.placeholderColor="white" [(ngModel)]="device.tableNumber"></TextField>
 
-    <Image (tap)="saveTableNumber()" width="86.67" height="78.4" class="valider" src="res://valider" stretch="aspectFill" horizontalAlignment="center"></Image>
+    <Image id="valider" (tap)="saveTableNumber()" class="valider" src="res://valider" stretch="aspectFill" horizontalAlignment="center"></Image>
 </StackLayout>
