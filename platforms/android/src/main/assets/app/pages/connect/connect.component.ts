@@ -4,17 +4,19 @@ import { Color } from "color";
 import { setHintColor } from "../../utils/hint-util";
 import { TextField } from "ui/text-field";
 import { Image } from "ui/image";
-import { Router } from "@angular/router";
 import { BluetoothDevice } from "../../shared/bluetooth/bluetooth-device";
 import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/modal-dialog";
 import { ModalViewComponent } from "../../pages/modal-view/modal-view.component";
 import { ConfigurationModel } from "../../shared/configuration/configuration";
-import * as applicationSettings from "tns-core-modules/application-settings";
+import { TnsSideDrawer } from "nativescript-sidedrawer";
 
+import * as applicationSettings from "tns-core-modules/application-settings";
 import * as animation from "tns-core-modules/ui/animation";
+import * as Toast from "nativescript-toast";
 import bluetooth = require('nativescript-bluetooth');
 import * as utf8 from "utf8";
 import * as dialogs from "ui/dialogs";
+import { RouterExtensions } from 'nativescript-angular/router';
 var he = require('he');
 
 const imageSource = require("image-source");
@@ -36,14 +38,19 @@ export class ConnectComponent implements OnInit {
 
   @ViewChild("wifi") wifi: ElementRef;
   @ViewChild("wifiinactive") wifiinactive: ElementRef;
-  @ViewChild("device-id") deviceId: ElementRef;
+  @ViewChild("deviceid") deviceId: ElementRef;
 
-  constructor(private page: Page, private modalService: ModalDialogService, private vcRef: ViewContainerRef, private router: Router) {
+  constructor(private page: Page, 
+      private modalService: ModalDialogService, 
+      private vcRef: ViewContainerRef, 
+      private routerExtensions: RouterExtensions) 
+  {
     this.device = new BluetoothDevice();
     this.device.isConnected = false;
     this.device.UUID = "30:AE:A4:18:1B:16";
 
     this.config = new ConfigurationModel();
+
   }
 
   ngOnInit() {
@@ -51,7 +58,7 @@ export class ConnectComponent implements OnInit {
     this.config.wifi_password = applicationSettings.getString("wifiPassword");
 
     if (!this.config.wifi_ssid) {
-      this.router.navigate(["/configuration"]);  
+      this.routerExtensions.navigate(["/configuration"], { clearHistory: true });  
     }
 
     this.page.actionBarHidden = false;
@@ -80,8 +87,8 @@ export class ConnectComponent implements OnInit {
 
                   this.connectToEsp("30:AE:A4:18:1B:16");
                 }
-                else {
-                  alert("Cannot use the application without bluetooth");
+                else {                  
+                  Toast.makeText("Cannot use the application without bluetooth", "long").show();
                 }
               }
             );
@@ -89,6 +96,11 @@ export class ConnectComponent implements OnInit {
 
         }
       )  
+  }
+
+  openDrawer() {
+    TnsSideDrawer.toggle();
+    // this.routerExtensions.navigate(["/configuration"], { clearHistory: true });
   }
 
   saveTableNumber() {

@@ -84,6 +84,9 @@ C:\Users\Win10\Documents\nscript_projects\CallingSystem\platforms\android\src\ma
 C:\Users\Win10\Documents\nscript_projects\CallingSystem\platforms\android\src\main\assets\app\tns_modules\nativescript-nodeify\postinstall.js
 C:\Users\Win10\Documents\nscript_projects\CallingSystem\platforms\android\src\main\assets\app\tns_modules\nativescript-nodeify\preuninstall.js
 C:\Users\Win10\Documents\nscript_projects\CallingSystem\platforms\android\src\main\assets\app\tns_modules\nativescript-randombytes\randombytes-native.js
+C:\Users\Win10\Documents\nscript_projects\CallingSystem\platforms\android\src\main\assets\app\tns_modules\nativescript-sidedrawer\nativescript-sidedrawer.common.js
+C:\Users\Win10\Documents\nscript_projects\CallingSystem\platforms\android\src\main\assets\app\tns_modules\nativescript-sidedrawer\nativescript-sidedrawer.js
+C:\Users\Win10\Documents\nscript_projects\CallingSystem\platforms\android\src\main\assets\app\tns_modules\nativescript-toast\toast.js
 C:\Users\Win10\Documents\nscript_projects\CallingSystem\platforms\android\src\main\assets\app\tns_modules\tns-core-modules\bundle-entry-points.js
 C:\Users\Win10\Documents\nscript_projects\CallingSystem\platforms\android\src\main\assets\app\tns_modules\tns-core-modules\application\application-common.js
 C:\Users\Win10\Documents\nscript_projects\CallingSystem\platforms\android\src\main\assets\app\tns_modules\tns-core-modules\application\application.js

@@ -1,12 +1,14 @@
 import { Component, OnInit, ElementRef, ViewChild, ViewContainerRef } from '@angular/core';
-import { Router } from "@angular/router";
 import { Page } from "ui/page";
 import { Color } from "color";
 import { TextField } from "ui/text-field";
+import { ActionItem } from "ui/action-bar";
 import { ConfigurationModel } from "../../shared/configuration/configuration";
 import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/modal-dialog";
 import { ModalViewComponent } from "../../pages/modal-view/modal-view.component";
+import { TnsSideDrawer } from "nativescript-sidedrawer";
 import * as applicationSettings from "tns-core-modules/application-settings";
+import { RouterExtensions } from 'nativescript-angular/router';
 
 @Component({
     selector: "configuration",
@@ -20,7 +22,11 @@ export class ConfigurationComponent implements OnInit {
     @ViewChild("wifiSsid") ssid: ElementRef;
     @ViewChild("password") password: ElementRef;
 
-    constructor(private router: Router, private page: Page, private modalService: ModalDialogService, private vcRef: ViewContainerRef) {
+    constructor(private routerExtensions: RouterExtensions, 
+        private page: Page, 
+        private modalService: ModalDialogService, 
+        private vcRef: ViewContainerRef) {
+            
         this.config = new ConfigurationModel();
     }
 
@@ -38,13 +44,17 @@ export class ConfigurationComponent implements OnInit {
 
         this.createModalView("Configuration Saved", "Wifi SSID and Password saved !")
             .then(() => {
-                this.router.navigate(["/"]);
+                this.routerExtensions.navigate(["/"], { clearHistory: true });
             })
             .catch((err) => {
                 this.handleError(err);
             });        
 
         // applicationSettings.clear();
+    }
+
+    openDrawer() {
+        TnsSideDrawer.toggle();
     }
 
     private createModalView(title: string, message: string): Promise<any> {

@@ -1,10 +1,10 @@
 <ActionBar title="">
     <StackLayout id="action-bar-layout" orientation="horizontal">
-        <Image src="res://menu" class="action-image"></Image>
+        <Image src="res://menu" class="action-image" (tap)="openDrawer()"></Image>
     </StackLayout>
 </ActionBar>
 
-<StackLayout #container height="100%">
+<StackLayout id="container" #container height="100%">
     <GridLayout rows="auto">
         <Image id="wifiinactive" row="0" #wifiinactive class="wifi-image-inactive" style.opacity="0" src="res://wifi_inactif" stretch="aspectFill"
             horizontalAlignment="center"></Image>

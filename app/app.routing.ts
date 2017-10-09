@@ -3,7 +3,8 @@ import { ModalViewComponent } from "./pages/modal-view/modal-view.component";
 import { ConfigurationComponent } from './pages/configuration/configuration.component';
 
 export const routes = [
-  { path: "", component: ConnectComponent },
+  { path: "", redirectTo:"/connect", pathMatch: "full"},
+  { path: "connect", component: ConnectComponent },
   { path: "modal", component: ModalViewComponent },
   { path: "configuration", component: ConfigurationComponent }
   
