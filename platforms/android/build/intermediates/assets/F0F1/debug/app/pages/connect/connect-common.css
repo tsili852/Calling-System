@@ -3,12 +3,6 @@ StackLayout {
     margin-top: 20;
 }
 
-ActionBar {
-    margin-top: 20;
-    border-color: transparent; 
-    border-width: 1;
-}
-
 .action-image {
     width: 40;
     height: 40;
@@ -24,10 +18,24 @@ ActionBar {
     border-bottom-color: white;
 }
 
-.valider {
-    margin-top: 40;
+#wifiinactive {
+    width: 102;
+    height: 78.67;
 }
 
-.calling-image {
+#wifiactive {
+    width: 102;
+    height: 78.67;
+}
+
+#calling-image {
+    width: 161;
+    height: 75;
     margin-top: 20;
+}
+
+#valider {
+    width: 86.67;
+    height: 78.4;
+    margin-top: 40;
 }

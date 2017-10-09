@@ -1,0 +1,18 @@
+<ActionBar title="">
+    <StackLayout id="action-bar-layout" orientation="horizontal">
+        <Image src="res://menu" class="action-image"></Image>
+    </StackLayout>
+</ActionBar>
+
+<StackLayout #container height="100%">
+    <Label class="h2 m-b-5" style.color="white" horizontalAlignment="center" text="Wifi module configuration"></Label>
+    <TextField class="custom-tf" #wifiSsid hint="Wifi SSID" horizontalAlignment="center" style.placeholderColor="white" [(ngModel)]="config.wifi_ssid"></TextField>
+    <TextField #wifiPassword class="custom-tf m-t-5" hint="Password" horizontalAlignment="center" style.placeholderColor="white" [(ngModel)]="config.wifi_password"></TextField>
+    <!-- <GridLayout rows="auto">
+        <Image id="wifiinactive" row="0" #wifiinactive class="wifi-image-inactive" style.opacity="0" src="res://wifi_inactif" stretch="aspectFill"
+            horizontalAlignment="center"></Image>
+        <Image id="wifiactive" row="0" #wifi class="wifi-image" src="res://wifi_actif" stretch="aspectFill" horizontalAlignment="center"></Image>
+    </GridLayout> -->
+
+    <Image id="wifi_save" (tap)="saveConfiguration()" class="wifi-valider" src="res://valider" stretch="aspectFill" horizontalAlignment="center"></Image>
+</StackLayout>

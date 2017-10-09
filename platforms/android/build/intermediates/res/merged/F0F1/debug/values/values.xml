@@ -63,7 +63,7 @@
     <color name="notification_icon_bg_color">#ff9e9e9e</color>
     <color name="notification_material_background_media_default_color">#ff424242</color>
     <color name="ns_accent">#ffffff</color>
-    <color name="ns_blue">#272734</color>
+    <color name="ns_blue">#ffffff</color>
     <color name="ns_primary">#F5F5F5</color>
     <color name="ns_primaryDark">#757575</color>
     <color name="primary_dark_material_dark">@android:color/black</color>

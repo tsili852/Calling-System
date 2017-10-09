@@ -1,10 +1,14 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ViewContainerRef } from '@angular/core';
 import { Page } from "ui/page";
 import { Color } from "color";
 import { setHintColor } from "../../utils/hint-util";
 import { TextField } from "ui/text-field";
 import { Image } from "ui/image";
+import { Router } from "@angular/router";
 import { BluetoothDevice } from "../../shared/bluetooth/bluetooth-device";
+import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/modal-dialog";
+import { ModalViewComponent } from "../../pages/modal-view/modal-view.component";
+
 import * as animation from "tns-core-modules/ui/animation";
 import bluetooth = require('nativescript-bluetooth');
 import * as utf8 from "utf8";
@@ -16,7 +20,8 @@ var timer = require("timer");
 
 @Component({
   selector: "my-app",
-  providers: [],
+  providers: [ModalDialogService],
+  entryComponents: [ModalViewComponent],
   templateUrl: "pages/connect/connect.html",
   styleUrls: ["pages/connect/connect-common.css", "pages/connect/connect.css"]
 })
@@ -28,43 +33,22 @@ export class ConnectComponent implements OnInit {
 
   @ViewChild("wifi") wifi: ElementRef;
   @ViewChild("wifiinactive") wifiinactive: ElementRef;
+  @ViewChild("device-id") deviceId: ElementRef;
 
-  constructor(private page: Page) {
+  constructor(private page: Page, private modalService: ModalDialogService, private vcRef: ViewContainerRef, private router: Router) {
     this.device = new BluetoothDevice();
     this.device.isConnected = false;
     this.device.UUID = "30:AE:A4:18:1B:16";
   }
-  
-  changeImage() {
-    let wifiImage = <Image>this.wifi.nativeElement;
-    let wifiInactiveImage = <Image>this.wifiinactive.nativeElement;
-
-    this.animationSet = new animation.Animation([{
-      target: wifiImage,
-      opacity: 0,
-      duration: 1000,
-      iterations: Number.POSITIVE_INFINITY,
-      
-    }]);
-    this.animationSet.play().catch((e) => {
-        console.log("Animation stopped!");
-    });
-
-    const animationInactive = new animation.Animation([{
-      target: wifiInactiveImage,
-      opacity: 100,
-      duration: 2000,
-      iterations: Number.POSITIVE_INFINITY,
-      
-    }]);
-    animationInactive.play().catch((e) => {
-        console.log("Animation stopped!");
-    });
-  }
 
   ngOnInit() {
+
+    this.router.navigate(["/configuration"]);
+
     this.page.actionBarHidden = false;
     this.page.backgroundColor = new Color("#4E2C52");
+
+    this.setTextFieldColor();
 
     const img = imageSource.fromResource("wifi_inactif");
 
@@ -106,11 +90,16 @@ export class ConnectComponent implements OnInit {
         console.log("Table Number: " + this.device.tableNumber);
         this.writeTableNumber(this.device.tableNumber, this.device.UUID);
       } else {
-        dialogs.alert({
-          title: "Table number empty",
-          message: "Please enter the table number",
-          okButtonText: "Ok"
-        });
+        // dialogs.alert({
+        //   title: "Table number empty",
+        //   message: "Please enter the table number",
+        //   okButtonText: "Ok"
+        // });
+        this.createModalView("Table number empty", "Please enter the table number")
+          .then()
+          .catch((err) => {
+            this.handleError(err);
+          });
       }
     } 
     else
@@ -176,10 +165,70 @@ export class ConnectComponent implements OnInit {
         value: utfString
       })
       .then(() => {
-        alert("Table number saved");
+        this.createModalView("Success !!", "Table number saved")
+        .then()
+        .catch((err) => {
+          this.handleError(err);
+        });
       })
       .catch((err) => {
-        alert("Error: " + err);
+        this.createModalView("Error", err)
+        .then()
+        .catch((err) => {
+          this.handleError(err);
+        });
       });
+  }
+
+  
+  changeImage() {
+    let wifiImage = <Image>this.wifi.nativeElement;
+    let wifiInactiveImage = <Image>this.wifiinactive.nativeElement;
+
+    this.animationSet = new animation.Animation([{
+      target: wifiImage,
+      opacity: 0,
+      duration: 1000,
+      iterations: Number.POSITIVE_INFINITY,
+      
+    }]);
+    this.animationSet.play().catch((e) => {
+        console.log("Animation stopped!");
+    });
+
+    const animationInactive = new animation.Animation([{
+      target: wifiInactiveImage,
+      opacity: 100,
+      duration: 2000,
+      iterations: Number.POSITIVE_INFINITY,
+      
+    }]);
+    animationInactive.play().catch((e) => {
+        // console.log("Animation stopped!");
+    });
+  }
+
+  private createModalView(title: string, message: string): Promise<any> {
+    const options: ModalDialogOptions = {
+      viewContainerRef: this.vcRef,
+      context: {title: title, message: message},
+      fullscreen: false,      
+    };
+
+    return this.modalService.showModal(ModalViewComponent, options);
+  }
+
+  private handleError(error: any) {
+    alert("Error: " + error);
+    console.dir(error);
+  }
+
+  setTextFieldColor() {
+    let deviceIdTextField = <TextField>this.deviceId.nativeElement;
+
+    let mainTextColor = new Color("#ffffff");
+    deviceIdTextField.color = mainTextColor;
+    let hintColor = new Color("#ffffff");
+    setHintColor({ view: deviceIdTextField, color: hintColor });
   }
 }

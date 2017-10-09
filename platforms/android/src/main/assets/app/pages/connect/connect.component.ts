@@ -4,9 +4,12 @@ import { Color } from "color";
 import { setHintColor } from "../../utils/hint-util";
 import { TextField } from "ui/text-field";
 import { Image } from "ui/image";
+import { Router } from "@angular/router";
 import { BluetoothDevice } from "../../shared/bluetooth/bluetooth-device";
 import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/modal-dialog";
 import { ModalViewComponent } from "../../pages/modal-view/modal-view.component";
+import { ConfigurationModel } from "../../shared/configuration/configuration";
+import * as applicationSettings from "tns-core-modules/application-settings";
 
 import * as animation from "tns-core-modules/ui/animation";
 import bluetooth = require('nativescript-bluetooth');
@@ -25,6 +28,7 @@ var timer = require("timer");
   styleUrls: ["pages/connect/connect-common.css", "pages/connect/connect.css"]
 })
 export class ConnectComponent implements OnInit {
+  config: ConfigurationModel;
   isLoggingIn = true;
   isConnected = false;
   animationSet: animation.Animation;
@@ -32,16 +36,28 @@ export class ConnectComponent implements OnInit {
 
   @ViewChild("wifi") wifi: ElementRef;
   @ViewChild("wifiinactive") wifiinactive: ElementRef;
+  @ViewChild("device-id") deviceId: ElementRef;
 
-  constructor(private page: Page, private modalService: ModalDialogService, private vcRef: ViewContainerRef) {
+  constructor(private page: Page, private modalService: ModalDialogService, private vcRef: ViewContainerRef, private router: Router) {
     this.device = new BluetoothDevice();
     this.device.isConnected = false;
     this.device.UUID = "30:AE:A4:18:1B:16";
+
+    this.config = new ConfigurationModel();
   }
 
   ngOnInit() {
+    this.config.wifi_ssid = applicationSettings.getString("wifiSSID");
+    this.config.wifi_password = applicationSettings.getString("wifiPassword");
+
+    if (!this.config.wifi_ssid) {
+      this.router.navigate(["/configuration"]);  
+    }
+
     this.page.actionBarHidden = false;
     this.page.backgroundColor = new Color("#4E2C52");
+
+    this.setTextFieldColor();
 
     const img = imageSource.fromResource("wifi_inactif");
 
@@ -214,5 +230,14 @@ export class ConnectComponent implements OnInit {
   private handleError(error: any) {
     alert("Error: " + error);
     console.dir(error);
+  }
+
+  setTextFieldColor() {
+    let deviceIdTextField = <TextField>this.deviceId.nativeElement;
+
+    let mainTextColor = new Color("#ffffff");
+    deviceIdTextField.color = mainTextColor;
+    let hintColor = new Color("#ffffff");
+    setHintColor({ view: deviceIdTextField, color: hintColor });
   }
 }
