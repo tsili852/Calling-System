@@ -56,9 +56,12 @@ export class ConnectComponent implements OnInit {
   ngOnInit() {
     this.config.wifi_ssid = applicationSettings.getString("wifiSSID");
     this.config.wifi_password = applicationSettings.getString("wifiPassword");
+    this.config.licence_number = applicationSettings.getString("licenceNumber");
 
-    if (!this.config.wifi_ssid) {
-      this.routerExtensions.navigate(["/configuration"], { clearHistory: true });  
+    if (!this.config.licence_number) {
+      this.routerExtensions.navigate(["/register"], { clearHistory: true });
+    } else if (!this.config.wifi_ssid) {
+      this.routerExtensions.navigate(["/configuration"], { clearHistory: true });
     }
 
     this.page.actionBarHidden = false;

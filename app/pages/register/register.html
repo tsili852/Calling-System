@@ -1,0 +1,11 @@
+<ActionBar title="">
+    <StackLayout id="action-bar-layout" orientation="horizontal">
+        <Image src="res://menu" class="action-image" (tap)="openDrawer()"></Image>
+    </StackLayout>
+</ActionBar>
+<StackLayout id="container" #container height="100%">
+    <Label class="h2 m-b-20" style.color="white" horizontalAlignment="center" text="Provide your Licence Number to validate"></Label>
+    <TextField class="custom-textfield" hint="Licence No" horizontalAlignment="center" style.placeholderColor="white" [(ngModel)]="config.licence_number"></TextField>
+
+    <Image style="margin-top:50" id="licence_save" (tap)="saveLicence()" class="licence-valider" src="res://valider" stretch="aspectFill" horizontalAlignment="center"></Image>
+</StackLayout>

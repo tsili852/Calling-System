@@ -36,6 +36,11 @@ export class ConfigurationComponent implements OnInit {
 
         this.config.wifi_ssid = applicationSettings.getString("wifiSSID");
         this.config.wifi_password = applicationSettings.getString("wifiPassword");
+        this.config.licence_number = applicationSettings.getString("licenceNumber");
+
+        if (!this.config.licence_number) {
+            this.routerExtensions.navigate(["/register"], { clearHistory: true });
+        }
     }
 
     saveConfiguration() {
@@ -44,7 +49,11 @@ export class ConfigurationComponent implements OnInit {
 
         this.createModalView("Configuration Saved", "Wifi SSID and Password saved !")
             .then(() => {
-                this.routerExtensions.navigate(["/"], { clearHistory: true });
+                if (!this.config.wifi_ssid) {
+                    this.routerExtensions.navigate(["/configuration"], { clearHistory: true });
+                } else {
+                    this.routerExtensions.navigate(["/"], { clearHistory: true });
+                }                
             })
             .catch((err) => {
                 this.handleError(err);
