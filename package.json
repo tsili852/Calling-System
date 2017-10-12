@@ -5,6 +5,9 @@
 	"repository": "<fill-your-repository-here>",
 	"nativescript": {
 		"id": "org.nativescript.CallingSystem",
+		"tns-ios": {
+			"version": "3.2.0"
+		},
 		"tns-android": {
 			"version": "3.2.0"
 		}
@@ -28,7 +31,7 @@
 		"reflect-metadata": "~0.1.8",
 		"rxjs": "~5.2.0",
 		"text-encoding": "^0.6.4",
-		"tns-core-modules": "~3.0.0",
+		"tns-core-modules": "^3.2.0",
 		"utf8": "^2.1.2",
 		"zone.js": "0.8.2"
 	},

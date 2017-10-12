@@ -8,7 +8,6 @@ import { ModalViewComponent } from "../../pages/modal-view/modal-view.component"
 import * as applicationSettings from "tns-core-modules/application-settings";
 import { RouterExtensions } from 'nativescript-angular/router';
 import { TnsSideDrawer } from "nativescript-sidedrawer";
-import { selector } from '../../../platforms/android/build/intermediates/assets/F0F1F2/debug/app/tns_modules/rxjs/src/operator/publish';
 import { ConfigurationModel } from '../../shared/configuration/configuration';
 
 @Component({

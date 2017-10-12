@@ -3,3 +3,10 @@ ActionBar {
   border-color: transparent; 
   border-width: 1;
 }
+
+#calling-image {
+    width: 161;
+    height: 75;
+    margin-top: 20;
+    stretch: aspectFill;
+}

@@ -1,0 +1,18 @@
+
+StackLayout {
+    vertical-align: top;
+    margin-top: 50;
+}
+
+ActionBar {
+    background-color: #4E2C52;
+}
+
+#device-id {
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
+
+#menu {
+    margin-left: -10;
+}

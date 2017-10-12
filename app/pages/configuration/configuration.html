@@ -9,5 +9,5 @@
     <TextField class="custom-textfield" #wifiSsid hint="Wifi SSID" horizontalAlignment="center" style.placeholderColor="white" [(ngModel)]="config.wifi_ssid"></TextField>
     <TextField #wifiPassword class="custom-textfield m-t-5" hint="Password" horizontalAlignment="center" style.placeholderColor="white" [(ngModel)]="config.wifi_password"></TextField>
     
-    <Image id="wifi_save" (tap)="saveConfiguration()" class="wifi-valider" src="res://valider" stretch="aspectFill" horizontalAlignment="center"></Image>
+    <Image id="wifi_save" (tap)="saveConfiguration()" class="wifi-valider" src="res://valider" stretch="aspectFit" horizontalAlignment="center"></Image>
 </StackLayout>
